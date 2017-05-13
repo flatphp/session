@@ -1,0 +1,23 @@
+{
+  "name": "flatphp/session",
+  "description": "session component",
+  "keywords": [
+    "session"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fred Yang",
+      "email": "shuky2000@163.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "flatphp/cache": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Flatphp\\Session\\": ""
+    }
+  }
+}
