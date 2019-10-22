@@ -30,7 +30,7 @@ class CacheHandler implements SessionHandlerInterface
      */
     public function read($session_id)
     {
-        return $this->cache->get($session_id);
+        return $this->cache->get($session_id, '');
     }
 
     /**
