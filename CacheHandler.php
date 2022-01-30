@@ -20,7 +20,7 @@ class CacheHandler implements SessionHandlerInterface
     /**
      * @inheritdoc
      */
-    public function open($save_path, $session_id)
+    public function open($save_path, $session_id):bool
     {
         return true;
     }
@@ -28,7 +28,7 @@ class CacheHandler implements SessionHandlerInterface
     /**
      * @inheritdoc
      */
-    public function read($session_id)
+    public function read($session_id):string|false
     {
         return $this->cache->get($session_id, '');
     }
@@ -36,7 +36,7 @@ class CacheHandler implements SessionHandlerInterface
     /**
      * @inheritdoc
      */
-    public function write($session_id, $session_data)
+    public function write($session_id, $session_data):bool
     {
         return $this->cache->set($session_id, $session_data, $this->lifetime);
     }
@@ -44,7 +44,7 @@ class CacheHandler implements SessionHandlerInterface
     /**
      * @inheritdoc
      */
-    public function close()
+    public function close():bool
     {
         return true;
     }
@@ -52,7 +52,7 @@ class CacheHandler implements SessionHandlerInterface
     /**
      * @inheritdoc
      */
-    public function destroy($session_id)
+    public function destroy($session_id):bool
     {
         return $this->cache->delete($session_id);
     }
@@ -60,8 +60,8 @@ class CacheHandler implements SessionHandlerInterface
     /**
      * @inheritdoc
      */
-    public function gc($maxlifetime)
+    public function gc($maxlifetime):int|false
     {
-        return true;
+        return 1;
     }
 }
